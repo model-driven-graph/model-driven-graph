@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "start": "ng serve model-driven-graph-demo",
+    "build": "ng build model-driven-graph-demo",
+    "watch": "ng build --watch --configuration development  model-driven-graph-demo",
+    "build-lib": "ng build model-driven-graph",
+    "watch-lib": "ng build --watch --configuration development  model-driven-graph",
     "test": "ng test"
   },
   "private": true,
