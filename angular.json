@@ -3,5 +3,139 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "model-driven-graph-demo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/model-driven-graph-demo",
+      "sourceRoot": "projects/model-driven-graph-demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/model-driven-graph-demo",
+            "index": "projects/model-driven-graph-demo/src/index.html",
+            "main": "projects/model-driven-graph-demo/src/main.ts",
+            "polyfills": "projects/model-driven-graph-demo/src/polyfills.ts",
+            "tsConfig": "projects/model-driven-graph-demo/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/model-driven-graph-demo/src/favicon.ico",
+              "projects/model-driven-graph-demo/src/assets"
+            ],
+            "styles": [
+              "projects/model-driven-graph-demo/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/model-driven-graph-demo/src/environments/environment.ts",
+                  "with": "projects/model-driven-graph-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "model-driven-graph-demo:build:production"
+            },
+            "development": {
+              "browserTarget": "model-driven-graph-demo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "model-driven-graph-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/model-driven-graph-demo/src/test.ts",
+            "polyfills": "projects/model-driven-graph-demo/src/polyfills.ts",
+            "tsConfig": "projects/model-driven-graph-demo/tsconfig.spec.json",
+            "karmaConfig": "projects/model-driven-graph-demo/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/model-driven-graph-demo/src/favicon.ico",
+              "projects/model-driven-graph-demo/src/assets"
+            ],
+            "styles": [
+              "projects/model-driven-graph-demo/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "model-driven-graph": {
+      "projectType": "library",
+      "root": "projects/model-driven-graph",
+      "sourceRoot": "projects/model-driven-graph/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/model-driven-graph/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/model-driven-graph/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/model-driven-graph/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/model-driven-graph/src/test.ts",
+            "tsConfig": "projects/model-driven-graph/tsconfig.spec.json",
+            "karmaConfig": "projects/model-driven-graph/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
   }
 }
