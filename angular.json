@@ -84,22 +84,8 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/model-driven-graph-demo/src/test.ts",
-            "polyfills": "projects/model-driven-graph-demo/src/polyfills.ts",
-            "tsConfig": "projects/model-driven-graph-demo/tsconfig.spec.json",
-            "karmaConfig": "projects/model-driven-graph-demo/karma.conf.js",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/model-driven-graph-demo/src/favicon.ico",
-              "projects/model-driven-graph-demo/src/assets"
-            ],
-            "styles": [
-              "projects/model-driven-graph-demo/src/styles.scss"
-            ],
-            "scripts": []
-          }
+          "builder": "@angular-builders/jest:run",
+          "options": {}
         }
       }
     },
@@ -125,12 +111,8 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/model-driven-graph/src/test.ts",
-            "tsConfig": "projects/model-driven-graph/tsconfig.spec.json",
-            "karmaConfig": "projects/model-driven-graph/karma.conf.js"
-          }
+          "builder": "@angular-builders/jest:run",
+          "options": {}
         }
       }
     }
